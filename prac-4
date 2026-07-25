@@ -58,7 +58,7 @@ function Footer()
     return(
         <div>
             <p>© 2026 Food Delivery</p>
-            <h3>Radhika 17</h3>
+            <h3>Asmitha 2</h3>
             <hr/>
         </div>
     );
@@ -76,7 +76,7 @@ function App() {
       <hr/>
       <h2>User Click : {count} Times </h2>
       <button onClick={() => setCount(count+1)}> click me </button>
-      <h3>Radhika 17</h3>
+      <h3>Asmitha 2</h3>
     </div>
   );
 }
