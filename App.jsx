@@ -1,121 +1,91 @@
-//3a
-function App()
-{
-  return (
-    <div>
-      <h1>Welcome to MERN STACK Development</h1>
-      <p>Asmitha 02</p>
-    </div>
-  );
-}
-export default App
+// import axios from "axios";
+// import { useEffect, useState } from "react";
 
+// function App() {
+//   const [products, setProducts] = useState([]);
+//   const [search, setSearch] = useState("");
 
-function App()
-{
-  const emp = "Asmitha";
-  const dept = "IT";
-  const sal = 50000;
-  return(
-    <div>
-      <h1>Employee Details</h1>
-      <p>Name : {emp}</p>
-      <p>Department : {dept}</p>
-      <p>Salary : ₹{sal}</p>
-    </div>
-  );
-}
-export default App
+//   useEffect(() => {axios.get("https://dummyjson.com/products")
+//     .then((response) => {
+//       setProducts(response.data.products);
+//     }); }, []);
 
-function App(){
-  const studentName = "Asmitha";
-  const totalClasses = 60;
-  const attendedClasses = 54;
-  const attendance = (attendedClasses / totalClasses) * 100;
-  return(
-    <div>
-      <h1>Attendance Dashboard</h1>
-      <hr />
-      <p>Name : {studentName}</p>
-      <p>Total Classes : {totalClasses}</p>
-      <p>Classes Attendence : {attendedClasses}</p>
-      <p>Attendance : {attendance.toFixed(2)}%</p>
-      <h3>
-        Status : { attendance >= 75? " Eligible for Exam" : " Not Eligible" }
-      </h3>
-    </div>
-  );
-}
-export default App
+//   const filteredProducts = products.filter((product) =>
+//     product.title.toLowerCase().includes(search.toLowerCase()) );
 
-function App(){
-  const maths = 85;
-  const sci = 90;
-  function calculate(mark1, mark2) {return mark1 + mark2}
-  return(
-    <div>
-      <h1>Student Marks</h1>
-      <hr />
-      <p>Mathematics Marks : {maths}</p>
-      <p>Science Marks : {sci}</p>
-      <hr />
-      <h2>Total Marks : {calculate(maths, sci)}</h2>
-      <h3>Asmitha 02</h3>
-    </div>
-  );
-}
-export default App
+//   return(
+//     <div>
+//       <h1>Product Search</h1>
+//       <input 
+//       type= "text"
+//       placeholder= "Search product"
+//       value={search}
+//       onChange={(e) => setSearch(e.target.value)} />
+//       <hr/>
+//       <table border="1">
+//         <thead>
+//           <tr>
+//             <th>ID</th>
+//             <th>Product Name</th>
+//             <th>Price</th>
+//             <th>Category</th>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           {filteredProducts.map((product) =>(
+//             <tr key={product.id}>
+//               <td>{product.id}</td>
+//                <td>{product.title}</td>
+//                 <td>₹{product.price}</td>
+//                <td>{product.category}</td>
+//             </tr>
+//           ))}
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+// }
+// export default App;
 
-function App(){
-  const currentDate = new Date();
-  return(
-    <div>
-      <h1>Current Date and Time</h1>
-      <hr />
-      <p>Date : {currentDate.toLocaleDateString()}</p>
-      <p>Time : {currentDate.toLocaleTimeString()}</p>
-      <h4>Asmitha 02</h4>
-    </div>
-  );
-}
-export default App
-
-import "./App.css";
-function App(){
-  return(
-    <div className="container">
-      <h1>Student Dashboard</h1>
-      <hr />
-      <p>Name : Asmitha </p>
-      <p>Roll No : 102</p>
-      <p>Course : B.Sc.IT</p>
-      <p>Semester : V</p>
-      <button>View Result</button>
-    </div>
-  );
+import { useState } from "react";
+function App() {
+    const [movies] = useState([
+        {
+            name: "Inception",
+            genre: "Sci-Fi",
+            rating: 8.8
+        },
+        {
+            name: "Interstellar",
+            genre: "Sci-Fi",
+            rating: 8.7
+        },
+        {
+            name: "The Dark Knight",
+            genre: "Action",
+            rating: 9.0
+        },
+        {
+            name: "Avengers: Endgame",
+            genre: "Action",
+            rating: 8.4
+        }
+    ]);
+    return (
+        <div>
+            <h1>Movie Watchlist</h1>
+            <hr />
+            {
+                movies.map((movie, index) => (
+                    <div key={index}>
+                        <h2>{movie.name}</h2>
+                        <p>Genre : {movie.genre}</p>
+                        <p>Rating : {movie.rating}/10</p>
+                        <hr />
+                    </div>
+                ))
+            }
+        </div>
+    );
 }
 export default App;
-
-
-
-import Header from "./components/Header";
-import Student from "./components/Student";
-import Attendance from "./components/Attendance";
-import Result from "./components/Result";
-import Footer from "./components/Footer";
-
-function App(){
-  return(
-    <div>
-      <Header />
-      <Student />
-      ----------------------------------------------
-      <Attendance />
-      ----------------------------------------------
-      <Result />
-      <Footer />
-    </div>
-  );
-}
-export default App;
-
