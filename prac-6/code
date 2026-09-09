@@ -1,0 +1,131 @@
+6.Node.js and Express Fundamentals
+a. Install Express and create a simple server.
+Code:
+const express = require("express");
+const app = express();
+const PORT = 3000;
+app.listen(PORT, () => {
+console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+
+b. Display a message on the browser using the server response.
+Code:
+const express = require("express");
+const app = express();
+const PORT = 3000;
+app.get("/", (req, res) => {
+res.send("Welcome to Express Server!   Asmitha");
+});
+app.listen(PORT, () => {
+console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+c. Create different routes in Express.
+Code:
+const express = require("express");
+const app = express();
+const PORT = 3000;
+
+// Home Route
+app.get("/", (req, res) => {
+    res.send(`
+        <h1>MVLU College Management Server</h1>
+        <p>Welcome to our college website.</p>
+        <p>Asmitha</p>
+    `);
+});
+// Students Route
+app.get("/students", (req, res) => {
+    res.send(`
+        <h1>Student List</h1>
+        <ul>
+            <li>Asmitha</li>
+            <li>Radhika</li>
+            <li>Afsha</li>
+            <li>Aashu</li>
+        </ul>
+    `);
+});
+// Faculty Route
+app.get("/faculty", (req, res) => {
+    res.send(`
+        <h1>Faculty List</h1>
+        <ul>
+            <li>Sneha Gokarnkar - Information Technology</li>
+            <li>Rohini Bhosale - Information Technology</li>
+            <li>Sumit Tripathi - Information Technology</li>
+            <li>Chetana Tanavade - Information Technology</li>
+        </ul>
+    `);
+});
+// Courses Route
+app.get("/courses", (req, res) => {
+    res.send(`
+        <h1>Available Courses</h1>
+        <ul>
+            <li>B.Sc. Information Technology</li>
+            <li>B.Sc. Computer Science</li>
+            <li>B.Sc. Biotechnology</li>
+            <li>B.A. Multimedia and Mass Communication</li>
+        </ul>
+    `);
+});
+// Contact Route
+app.get("/contact", (req, res) => {
+    res.send(`
+        <h1>Contact Us</h1>
+        <p>Email: info@mvlucollege.in</p>
+        <p>Phone: 9876543210</p>
+        <p>Address: Andheri, Mumbai</p>
+    `);
+});
+// Start Server
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+d. Send a JSON response from the server.
+Code:
+const express = require("express");
+const app = express();
+const PORT = 3000;
+// Home Route
+app.get("/", (req, res) => {
+    res.send("Welcome to MVLU College Management Server");
+});
+// Students Route
+app.get("/students", (req, res) => {
+    const students = [
+        {
+            id: 1,
+            name: "Asmitha",
+            course: "B.Sc. IT",
+            marks: 85
+        },
+        {
+            id: 2,
+            name: "Anu",
+            course: "B.Sc. IT",
+            marks: 92
+        },
+        {
+            id: 3,
+            name: "Aachu",
+            course: "B.Sc. CS",
+            marks: 78
+        }
+    ];
+    res.json(students);
+});
+// Start Server
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
+//e. Test routes using browser or Postman.
+(Same code of 6.4) 
+
+//f. Run the server and observe the output in the console.
+
+
